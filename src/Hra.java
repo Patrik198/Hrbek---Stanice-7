@@ -1,4 +1,6 @@
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Hra {
@@ -7,10 +9,22 @@ public class Hra {
     private Mistnost aktualnimistnost;
     private boolean bezi = true;
 
+    private Map<String, Prikaz> seznamprikazu = new HashMap<>();
+
     public void hraj(){
         try{
             svet = Svet.nactijson("mapa.json");
             aktualnimistnost = svet.getPocatecniMistnost();
+
+            registrujprikaz(new PrikazJdi());
+            registrujprikaz(new PrikazKonec());
+            registrujprikaz(new PrikazMluv());
+            registrujprikaz(new PrikazNapoveda());
+            registrujprikaz(new PrikazPomoc());
+            registrujprikaz(new PrikazPouzij());
+            registrujprikaz(new PrikazProzkoumej());
+            registrujprikaz(new PrikazVezmi());
+            registrujprikaz(new PrikazPoloz());
 
             Scanner sc = new Scanner(System.in);
             System.out.println("--- VESMÍRNÁ STANICE AEGIS ---");
@@ -24,40 +38,46 @@ public class Hra {
                 String[] slova = radek.split(" ");
                 String prikaz = slova[0];
 
-                if (prikaz.equals("konec")){
-                    bezi = false;
-                } else if (prikaz.equals("jdi") && slova.length > 1) {
-                    zpracujPohyb(slova[1]);
+                if (seznamprikazu.containsKey(prikaz)){
+                    Prikaz p = seznamprikazu.get(prikaz);
+                    p.proved(slova, this);
                 }else{
-                    System.out.println("Nerozumím. Zkus 'jdi [směr]' nebo 'konec'.");
+                    System.out.println("Tento prikaz neznam! zkus pouzit prikaz napoveda");
                 }
             }
         } catch (Exception e) {
             // Pokud např. chybí soubor nebo je v JSONu chyba, vypíše se varování
             System.out.println("Kritická chyba: " + e.getMessage());
-        }
-    }
-
-    private void zpracujPohyb(String smer){
-
-        // Zeptáme se aktuální místnosti: "Máš východ tímto směrem?"
-        String IDvychodu = aktualnimistnost.getSmerVychodu(smer);
-
-        if (IDvychodu != null){
-            Mistnost nova = svet.najdiMistnost(IDvychodu);
-            if (nova != null){
-                aktualnimistnost = nova;
-                System.out.println("Přešel jsi do lokace: " + aktualnimistnost.getId());
             }
         }
-    }
+
+        public void registrujprikaz(Prikaz p){
+            seznamprikazu.put(p.getNazev(), p);
+        }
+
+        public Mistnost getAktualnimistnost(){
+            return aktualnimistnost;
+        }
+
+        public void setAktualnimistnost(Mistnost m){
+            this.aktualnimistnost = m;
+        }
+
+        public void setBezi(boolean stav) {
+            this.bezi = stav;
+        }
+
+        public Svet getSvet(){
+            return svet;
+        }
+}
 
     //TODO prikaz vezmi, prozkoumej, pomoc, napoveda, poloz, mluv, pouzij
 
-    public void registrujPrikaz(){}
-    public Mistnost getAktualniMistnost(){}
-    public void setAktualniMistnost(Mistnost m){}
-    public boolean pridejDoBatohu(Predmet p){}
+//    public void registrujPrikaz(){}
+//    public Mistnost getAktualniMistnost(){}
+//    public void setAktualniMistnost(Mistnost m){}
+//    public boolean pridejDoBatohu(Predmet p){}
 
 
-}
+//}
