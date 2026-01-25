@@ -1,0 +1,57 @@
+{
+  "startovnimistnost": "Kryokomora",
+  "mistnosti": [
+    {
+      "id": "Kryokomora",
+      "popis": "Startovní místnost, chladná a tichá.",
+      "vychody": {"sever": "HlavniChodba", "zapad": "Sklad", "vychod": "Strojovna"},
+      "predmety": [
+        {"nazev": "magneticky klic", "popis": "Slouží k otevření dveří z Kryokomory.", "vaha": 1, "prenosny": true}
+      ]
+    },
+    {
+      "id": "Sklad",
+      "popis": "Místo plné harampádí, kde se dají najít baterie a nářadí.",
+      "vychody": {"vychod": "Kryokomora"},
+      "predmety": [
+        {"nazev": "multitool", "popis": "Všestranný klíč.", "vaha": 1, "prenosny": true}
+      ]
+    },
+    {
+      "id": "Strojovna",
+      "popis": "Srdce stanice, kde se ovládá energie.",
+      "vychody": {"zapad": "Kryokomora"},
+      "predmety": [
+        {"nazev": "energeticky clanek", "popis": "Hlavní článek pro dodávku energie lodi.", "vaha": 2, "prenosny": true}
+      ]
+    },
+    {
+      "id": "HlavniChodba",
+      "popis": "Centrální uzel propojující většinu stanice.",
+      "vychody": {"jih": "Kryokomora", "sever": "Mustek", "zapad": "Laborator", "vychod": "Osetrovna"}
+    },
+    {
+      "id": "Laborator",
+      "popis": "Místo s hlavním terminálem UI.",
+      "vychody": {"vychod": "HlavniChodba", "sever": "Archiv"}
+    },
+    {
+      "id": "Osetrovna",
+      "popis": "Zde se nachází lékárnička a záznamy o posádce.",
+      "vychody": {"zapad": "HlavniChodba"}
+    },
+    {
+      "id": "Archiv",
+      "popis": "Místnost plná datových disků a starých dokumentů.",
+      "vychody": {"jih": "Laborator", "vychod": "Mustek"},
+      "predmety": [
+        {"nazev": "datovy cip", "popis": "Deaktivační čip verze 2.0.", "vaha": 1, "prenosny": true}
+      ]
+    },
+    {
+      "id": "Mustek",
+      "popis": "Cílová místnost.",
+      "vychody": {"jih": "HlavniChodba", "zapad": "Archiv"}
+    }
+  ]
+}
