@@ -10,7 +10,7 @@ public class PrikazPouzij implements Prikaz{
     }
 
     @Override
-    public void proved(String[] parametry, Hra hra) {
+    public void proved(String[] prikaz, Hra hra) {
 
     }
 }
