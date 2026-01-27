@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -13,7 +12,7 @@ public class Hra {
 
     public void hraj(){
         try{
-            svet = Svet.nactijson("mapa.json");
+            svet = Svet.nactijson("resource/mapa.json");
             aktualnimistnost = svet.getPocatecniMistnost();
 
             registrujprikaz(new PrikazJdi());
@@ -32,6 +31,7 @@ public class Hra {
             while (bezi){
                 System.out.println("\nJsi v: " + aktualnimistnost.getId());
                 System.out.println(aktualnimistnost.getPopis());
+                System.out.println("\nVedlejsi mistnosti: " + aktualnimistnost.zobrazVychody());
                 System.out.print(">>> ");
 
                 String radek = sc.nextLine().toLowerCase().trim();
