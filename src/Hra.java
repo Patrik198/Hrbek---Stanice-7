@@ -7,6 +7,7 @@ public class Hra {
     private Svet svet;
     private Mistnost aktualnimistnost;
     private boolean bezi = true;
+    private Inventar inv;
 
     private Map<String, Prikaz> seznamprikazu = new HashMap<>();
 
@@ -14,6 +15,7 @@ public class Hra {
         try{
             svet = Svet.nactijson("resource/mapa.json");
             aktualnimistnost = svet.getPocatecniMistnost();
+            inv = new Inventar();
 
             registrujprikaz(new PrikazJdi());
             registrujprikaz(new PrikazKonec());
@@ -24,13 +26,18 @@ public class Hra {
             registrujprikaz(new PrikazProzkoumej());
             registrujprikaz(new PrikazVezmi());
             registrujprikaz(new PrikazPoloz());
+            registrujprikaz(new PrikazBatoh());
+
+
 
             Scanner sc = new Scanner(System.in);
             System.out.println("--- VESMÍRNÁ STANICE AEGIS ---");
 
+            System.out.println("\nseznam prikazu: " + seznamprikazu.keySet());
+
             while (bezi){
                 System.out.println("\nJsi v: " + aktualnimistnost.getId());
-                System.out.println(aktualnimistnost.getPopis());
+                System.out.println(aktualnimistnost.getPopis() + " a nachazi se zde predmět: " + aktualnimistnost.zobrazPredmety());
                 System.out.println("\nVedlejsi mistnosti: " + aktualnimistnost.zobrazVychody());
                 System.out.print(">>> ");
 
@@ -70,6 +77,10 @@ public class Hra {
         public Svet getSvet(){
             return svet;
         }
+
+    public Inventar getInv() {
+        return inv;
+    }
 }
 
     //TODO prikaz vezmi, prozkoumej, pomoc, napoveda, poloz, mluv, pouzij
