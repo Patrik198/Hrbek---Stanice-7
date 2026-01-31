@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -9,12 +11,21 @@ public class Mistnost {
     private String id;
     private String popis; // Text, který se hráči zobrazí po příchodu
     private Map<String, String> vychody; // Směr -> ID cílové místnosti (<smer, mistnost>)
+    private List<Predmet> predmety = new ArrayList<>();
 
     // Getter pro ID, abychom mohli vypsat, kde hráč je
-    public String getId() { return id; }
+    public String getId() {
+        return id;
+    }
 
     // Getter pro popis místnosti
-    public String getPopis() { return popis; }
+    public String getPopis() {
+        return popis;
+    }
+
+    public List<Predmet> getPredmety(){
+        return predmety;
+    }
 
     /**
      * Klíčová metoda pro pohyb.
@@ -23,9 +34,26 @@ public class Mistnost {
      * @return ID cílové místnosti nebo null, pokud cesta neexistuje
      */
     public String getSmerVychodu(String smer) {
-        if (vychody == null) return null;
+        if (vychody == null)
+            return null;
         return vychody.get(smer);
 
+    }
+
+    public boolean odeberPredmet(Predmet p){
+        return predmety.remove(p);
+    }
+
+    public String zobrazPredmety(){
+        if (predmety == null || predmety.isEmpty()){
+            return "Neni tu nic";
+        }
+
+        List<String> nazvy = new ArrayList<>();
+        for (Predmet p : predmety){
+            nazvy.add(p.getNazev());
+        }
+        return String.join(", ", nazvy);
     }
 
     public String zobrazVychody() {
