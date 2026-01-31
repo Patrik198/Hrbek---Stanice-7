@@ -26,7 +26,7 @@ public class Hra {
             registrujprikaz(new PrikazProzkoumej());
             registrujprikaz(new PrikazVezmi());
             registrujprikaz(new PrikazPoloz());
-            registrujprikaz(new PrikazBatoh());
+            registrujprikaz(new PrikazInventar());
 
 
 
