@@ -14,12 +14,24 @@ public class Inventar {
     }
 
     public boolean pridejPredmet(Predmet p) {
-        if (aktualnikapacita >= kapacita) {
+        if (aktualnikapacita + p.getVaha() > kapacita) {
             return false;  // Inventář je plný
         }
         inventar.add(p);
         aktualnikapacita += p.getVaha();
         return true;
+    }
+
+    public boolean odeberPredmet(Predmet p){
+        if (p == null){
+            return false;
+        }
+
+        if(inventar.remove(p)) {
+            aktualnikapacita -= p.getVaha();
+            return true;
+        }
+        return false;
     }
 
     public String zobrazObsah(){
@@ -30,7 +42,9 @@ public class Inventar {
         String inv = "V inventari mas: ";
         List<String> nazvy = new ArrayList<>();
         for (Predmet p : inventar){
-            nazvy.add(p.getNazev());
+            if (p != null) {
+                nazvy.add(p.getNazev());
+            }
         }
 
         inv += String.join(", ", nazvy);
@@ -38,8 +52,12 @@ public class Inventar {
         return inv;
     }
 
-    public List<Predmet> getInventar() {
-        return inventar;
+    public Predmet najdiPredmet(String nazevPredmetu) {
+        for (Predmet p : inventar){
+            if (p != null && p.getNazev().equals(nazevPredmetu)){
+                return p;
+            }
+        }
+        return null;
     }
-
 }
