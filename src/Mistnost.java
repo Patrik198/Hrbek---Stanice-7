@@ -40,6 +40,10 @@ public class Mistnost {
 
     }
 
+    public boolean pridejPredmet(Predmet p){
+        return predmety.add(p);
+    }
+
     public boolean odeberPredmet(Predmet p){
         return predmety.remove(p);
     }
