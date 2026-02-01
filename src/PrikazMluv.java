@@ -1,7 +1,7 @@
 public class PrikazMluv implements Prikaz{
     @Override
     public String getNazev() {
-        return "";
+        return "mluv";
     }
 
     @Override
