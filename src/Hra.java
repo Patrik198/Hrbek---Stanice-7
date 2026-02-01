@@ -74,6 +74,10 @@ public class Hra {
             this.bezi = stav;
         }
 
+        public Prikaz najdiPrikaz(String nazev){
+            return seznamprikazu.get(nazev);
+        }
+
         public Svet getSvet(){
             return svet;
         }
