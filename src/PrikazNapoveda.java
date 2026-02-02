@@ -16,9 +16,9 @@ public class PrikazNapoveda implements Prikaz{
         System.out.println("vezmi <předmět>  - Vezme předmět do inventáře");
         System.out.println("poloz <předmět>  - Položí předmět z inventáře");
         System.out.println("batoh            - Zobrazí obsah inventáře");
-        System.out.println("prozkoumej       - Prozkoumá místnost");
+        System.out.println("prozkoumej       - Prozkoumá předmět");
         System.out.println("pouzij <předmět> - Použije předmět");
-        System.out.println("mluv             - Promluví s postavou");
+        System.out.println("mluv             - Promluví s postavou UI");
         System.out.println("pomoc <příkaz>   - Detailní nápověda k příkazu");
         System.out.println("konec            - Ukončí hru");
         System.out.println("\nPro detailní info použij: pomoc <název příkazu>");
