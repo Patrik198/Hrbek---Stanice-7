@@ -14,7 +14,7 @@
       "popis": "Místo plné harampádí, kde se dají najít baterie a nářadí.",
       "vychody": {"vychod": "Kryokomora"},
       "predmety": [
-        {"nazev": "multitool", "popis": "Všestranný klíč.", "vaha": 1, "prenosny": true}
+        {"nazev": "multitool", "popis": "Nástroj pro opravu panelů a hackování.", "vaha": 1, "prenosny": true}
       ]
     },
     {
@@ -33,7 +33,10 @@
     {
       "id": "Laborator",
       "popis": "Místo s hlavním terminálem UI.",
-      "vychody": {"vychod": "HlavniChodba", "sever": "Archiv"}
+      "vychody": {"vychod": "HlavniChodba", "sever": "Archiv"},
+      "postavy": [
+        {"jmeno": "UI", "dialog": "První část přístupového kódu: 582"}
+        ]
     },
     {
       "id": "Osetrovna",
@@ -45,7 +48,8 @@
       "popis": "Místnost plná datových disků a starých dokumentů.",
       "vychody": {"jih": "Laborator", "vychod": "Mustek"},
       "predmety": [
-        {"nazev": "datovy cip", "popis": "Deaktivační čip verze 2.0.", "vaha": 1, "prenosny": true}
+        {"nazev": "datovy cip", "popis": "Slouží k deaktivaci záchraného systému na Můstku.", "vaha": 1, "prenosny": true},
+        {"nazev": "stary denik", "popis": "Druhá část přístupového kódu: 136", "vaha": 0, "prenosny": true}
       ]
     },
     {
