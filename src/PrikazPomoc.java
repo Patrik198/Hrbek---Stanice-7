@@ -67,8 +67,7 @@ public class PrikazPomoc implements Prikaz{
 
             case "prozkoumej":
                 System.out.println("Použití: prozkoumej");
-                System.out.println("Popis: Detailně prozkoumá aktuální místnost");
-                System.out.println("Zobrazí předměty, východy a další detaily");
+                System.out.println("Popis: Detailně popíše co item dělá a k čemu je");
                 break;
 
             case "pouzij":
