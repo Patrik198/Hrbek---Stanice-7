@@ -60,4 +60,8 @@ public class Inventar {
         }
         return null;
     }
+
+    public List<Predmet> getInventar() {
+        return inventar;
+    }
 }
