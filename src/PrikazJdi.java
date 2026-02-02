@@ -1,4 +1,5 @@
 public class PrikazJdi implements Prikaz{
+
     @Override
     public String getNazev() {
         return "jdi";
@@ -22,11 +23,24 @@ public class PrikazJdi implements Prikaz{
 
         if (vychod == null){
             System.out.println("Nemas kam jit!");
-        }else{
-            Mistnost nova = hra.getSvet().najdiMistnost(vychod);
-            hra.setAktualnimistnost(nova);
-            System.out.println("Přešel jsi do: " + nova.getId());
-            System.out.println(nova.getPopis());
+        }else {
+
+            boolean muzesprojit = false;
+
+            for (Predmet p : hra.getInv().getInventar()) {
+                if (p.getNazev().contains("magneticky klic")) {
+                    muzesprojit = true;
+                    break;
+                }
+            }
+                    if (muzesprojit) {
+                        Mistnost nova = hra.getSvet().najdiMistnost(vychod);
+                        hra.setAktualnimistnost(nova);
+                        System.out.println("Přešel jsi do: " + nova.getId());
+                        System.out.println(nova.getPopis());
+                    } else {
+                        System.out.println("Nemůžeš projít – nemáš magnetický klíč.");
+                    }
+                }
+            }
         }
-    }
-}
