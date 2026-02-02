@@ -11,6 +11,11 @@ public class Hra {
 
     private Map<String, Prikaz> seznamprikazu = new HashMap<>();
 
+    private boolean kryokomoraOdemknuta = false;
+    private boolean energieObnovena = false;
+    private boolean terminalOpraven = false;
+    private boolean systemDeaktivovan = false;
+
     public void hraj(){
         try{
             svet = Svet.nactijson("resource/mapa.json");
@@ -62,6 +67,18 @@ public class Hra {
             seznamprikazu.put(p.getNazev(), p);
         }
 
+        public void zkontrolujVyhru() {
+        if (terminalOpraven && systemDeaktivovan && energieObnovena) {
+            System.out.println("\n╔════════════════════════════════════════╗");
+            System.out.println("║    GRATULUJEME! ÚSPĚŠNĚ JSI UTEKL!    ║");
+            System.out.println("║   Stanice AEGIS je opět funkční a     ║");
+            System.out.println("║   záchranný systém je deaktivován.    ║");
+            System.out.println("║         Mise dokončena!               ║");
+            System.out.println("╚════════════════════════════════════════╝\n");
+            setBezi(false);
+        }
+    }
+
         public Mistnost getAktualnimistnost(){
             return aktualnimistnost;
         }
@@ -82,9 +99,42 @@ public class Hra {
             return svet;
         }
 
-    public Inventar getInv() {
+        public Inventar getInv() {
         return inv;
     }
+
+        public boolean isKryokomoraOdemknuta() {
+        return kryokomoraOdemknuta;
+    }
+
+        public void setKryokomoraOdemknuta(boolean stav) {
+        this.kryokomoraOdemknuta = stav;
+    }
+
+        public boolean isEnergieObnovena() {
+        return energieObnovena;
+    }
+
+        public void setEnergieObnovena(boolean stav) {
+        this.energieObnovena = stav;
+    }
+
+        public boolean isTerminalOpraven() {
+        return terminalOpraven;
+    }
+
+        public void setTerminalOpraven(boolean stav) {
+        this.terminalOpraven = stav;
+    }
+
+        public boolean isSystemDeaktivovan() {
+        return systemDeaktivovan;
+    }
+
+        public void setSystemDeaktivovan(boolean stav) {
+        this.systemDeaktivovan = stav;
+    }
+
 }
 
     //TODO prikaz vezmi, prozkoumej, pomoc, napoveda, poloz, mluv, pouzij
