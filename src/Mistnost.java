@@ -12,6 +12,8 @@ public class Mistnost {
     private String popis; // Text, který se hráči zobrazí po příchodu
     private Map<String, String> vychody; // Směr -> ID cílové místnosti (<smer, mistnost>)
     private List<Predmet> predmety = new ArrayList<>();
+    private List<Postava> postavy = new ArrayList<>();
+
 
     // Getter pro ID, abychom mohli vypsat, kde hráč je
     public String getId() {
@@ -46,6 +48,24 @@ public class Mistnost {
 
     public boolean odeberPredmet(Predmet p){
         return predmety.remove(p);
+    }
+
+    public Postava najdiPostavu(String jmeno) {
+        for (Postava p : postavy) {
+            if (p.getJmeno().equalsIgnoreCase(jmeno)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public Predmet najdiPredmet(String nazev) {
+        for (Predmet p : predmety) {
+            if (p.getNazev().equalsIgnoreCase(nazev)) {
+                return p;
+            }
+        }
+        return null;
     }
 
     public String zobrazPredmety(){
