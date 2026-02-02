@@ -34,6 +34,10 @@ public class Inventar {
         return false;
     }
 
+    public boolean OdeberPredmet(Predmet p) {
+        return inventar.remove(p);
+    }
+
     public String zobrazObsah(){
         if (inventar == null || inventar.isEmpty()){
             return "inventar je prazdny";
