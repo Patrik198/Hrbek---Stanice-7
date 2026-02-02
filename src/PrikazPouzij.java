@@ -57,7 +57,7 @@ public class PrikazPouzij implements Prikaz{
                         System.out.println("│ Cesta je volná!                    │");
                         System.out.println("└────────────────────────────────────┘");
                         hra.setKryokomoraOdemknuta(true);
-                        inv.odeberPredmet(predmet);
+                        inv.OdeberPredmet(predmet);
                     }
                 } else {
                     System.out.println("Magnetický klíč se dá použít jen v Kryokomoře.");
@@ -75,7 +75,7 @@ public class PrikazPouzij implements Prikaz{
                         System.out.println("│ Stanice má opět plnou energii!     │");
                         System.out.println("└────────────────────────────────────┘");
                         hra.setEnergieObnovena(true);
-                        inv.odeberPredmet(predmet);
+                        inv.OdeberPredmet(predmet);
                         hra.zkontrolujVyhru();
                     }
                 } else {
@@ -123,7 +123,7 @@ public class PrikazPouzij implements Prikaz{
                             System.out.println("│ Záchranný systém deaktivován!      │");
                             System.out.println("└────────────────────────────────────┘");
                             hra.setSystemDeaktivovan(true);
-                            inv.odeberPredmet(predmet);
+                            inv.OdeberPredmet(predmet);
                             hra.zkontrolujVyhru();
                         } else {
                             System.out.println("│ ✗ CHYBNÝ KÓD                       │");
