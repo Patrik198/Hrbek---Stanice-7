@@ -1,16 +1,16 @@
 public class PrikazKonec implements Prikaz{
     @Override
     public String getNazev() {
-        return "";
+        return "konec";
     }
 
     @Override
     public String getPopis() {
-        return "";
+        return "Ukončí hru";
     }
 
     @Override
     public void proved(String[] prikaz, Hra hra) {
-
+        hra.setBezi(false);
     }
 }
