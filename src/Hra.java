@@ -38,7 +38,7 @@ public class Hra {
 
 
             Scanner sc = new Scanner(System.in);
-            p.println("--- VESMÍRNÁ STANICE AEGIS ---");
+            p.println(Barvicky.CYAN + "--- VESMÍRNÁ STANICE AEGIS ---" + Barvicky.ANSI_RESET);
 
             p.println("\nseznam prikazu: " + seznamprikazu.keySet());
 
