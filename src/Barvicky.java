@@ -8,5 +8,6 @@ public class Barvicky {
     public static final String CYAN = "\u001B[36m";
 
     public static final String WHITE_BACKGROUND = "\u001B[47m";
+    public static final String BLUE_BACKGROUND = "\u001B[44m";
 
 }
