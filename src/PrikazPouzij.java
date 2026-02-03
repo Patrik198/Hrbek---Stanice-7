@@ -14,6 +14,10 @@ public class PrikazPouzij implements Prikaz{
         return "Použij předmět v místnosti";
     }
 
+    public String getBarva(){
+        return Barvicky.CYAN;
+    }
+
     @Override
     public void proved(String[] prikaz, Hra hra) {
         if (prikaz.length < 2){

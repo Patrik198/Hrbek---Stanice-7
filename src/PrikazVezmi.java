@@ -13,6 +13,10 @@ public class PrikazVezmi implements Prikaz{
         return "";
     }
 
+    public String getBarva(){
+        return Barvicky.GREEN;
+    }
+
     @Override
     public void proved(String[] prikaz, Hra hra) {
 

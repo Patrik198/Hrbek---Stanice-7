@@ -12,6 +12,10 @@ public class PrikazPoloz implements Prikaz{
         return "";
     }
 
+    public String getBarva(){
+        return Barvicky.BLUE;
+    }
+
     @Override
     public void proved(String[] prikaz, Hra hra) {
 

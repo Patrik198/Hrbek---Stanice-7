@@ -12,6 +12,10 @@ public class PrikazProzkoumej implements Prikaz{
         return "prozkoumá item";
     }
 
+    public String getBarva(){
+        return Barvicky.CYAN;
+    }
+
     @Override
     public void proved(String[] prikaz, Hra hra) {
 

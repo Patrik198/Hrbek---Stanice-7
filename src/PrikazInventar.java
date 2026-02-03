@@ -12,6 +12,10 @@ public class PrikazInventar implements Prikaz{
         return "";
     }
 
+    public String getBarva(){
+        return Barvicky.YELLOW;
+    }
+
     @Override
     public void proved(String[] prikaz, Hra hra) {
         p.println(hra.getInv().zobrazObsah());

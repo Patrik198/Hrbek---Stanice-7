@@ -12,6 +12,10 @@ public class PrikazNapoveda implements Prikaz{
         return "Zobrazí seznam všech dostupných příkazů";
     }
 
+    public String getBarva(){
+        return Barvicky.BLUE;
+    }
+
     @Override
     public void proved(String[] prikaz, Hra hra) {
         p.println("\n=== DOSTUPNÉ PŘÍKAZY ===");

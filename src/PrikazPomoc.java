@@ -13,6 +13,10 @@ public class PrikazPomoc implements Prikaz{
         return "Zobrazí detailní nápovědu k příkazu";
     }
 
+    public String getBarva(){
+        return Barvicky.BLUE;
+    }
+
     @Override
     public void proved(String[] prikaz, Hra hra) {
         this.hra = hra;

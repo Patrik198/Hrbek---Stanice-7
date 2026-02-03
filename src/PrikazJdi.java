@@ -12,6 +12,10 @@ public class PrikazJdi implements Prikaz{
         return "Umožňuje přesun mezi místnostmi. Použití: jdi [směr] (např. jdi sever).";
     }
 
+    public String getBarva(){
+        return Barvicky.GREEN;
+    }
+
     @Override
     public void proved(String[] prikaz, Hra hra) {
         if (prikaz.length < 2){
