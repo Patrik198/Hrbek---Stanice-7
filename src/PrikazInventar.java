@@ -1,4 +1,7 @@
 public class PrikazInventar implements Prikaz{
+
+    Printovanitextu p = new Printovanitextu();
+
     @Override
     public String getNazev() {
         return "inventar";
@@ -11,6 +14,6 @@ public class PrikazInventar implements Prikaz{
 
     @Override
     public void proved(String[] prikaz, Hra hra) {
-        System.out.println(hra.getInv().zobrazObsah());
+        p.println(hra.getInv().zobrazObsah());
     }
 }

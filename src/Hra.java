@@ -9,6 +9,8 @@ public class Hra {
     private boolean bezi = true;
     private Inventar inv;
 
+    Printovanitextu p = new Printovanitextu();
+
     private Map<String, Prikaz> seznamprikazu = new HashMap<>();
 
     private boolean kryokomoraOdemknuta = false;
@@ -36,25 +38,25 @@ public class Hra {
 
 
             Scanner sc = new Scanner(System.in);
-            System.out.println("--- VESMÍRNÁ STANICE AEGIS ---");
+            p.println("--- VESMÍRNÁ STANICE AEGIS ---");
 
-            System.out.println("\nseznam prikazu: " + seznamprikazu.keySet());
+            p.println("\nseznam prikazu: " + seznamprikazu.keySet());
 
             while (bezi){
-                System.out.println("\nJsi v: " + aktualnimistnost.getId());
-                System.out.println(aktualnimistnost.getPopis() + " a nachazi se zde predmět: " + aktualnimistnost.zobrazPredmety());
-                System.out.println("\nVedlejsi mistnosti: " + aktualnimistnost.zobrazVychody());
-                System.out.print(">>> ");
+                p.println("\nJsi v: " + aktualnimistnost.getId());
+                p.println(aktualnimistnost.getPopis() + " a nachazi se zde predmět: " + aktualnimistnost.zobrazPredmety());
+                p.println("\nVedlejsi mistnosti: " + aktualnimistnost.zobrazVychody());
+                p.print(">>> ");
 
                 String radek = sc.nextLine().toLowerCase().trim();
                 String[] slova = radek.split(" ");
                 String prikaz = slova[0];
 
                 if (seznamprikazu.containsKey(prikaz)){
-                    Prikaz p = seznamprikazu.get(prikaz);
-                    p.proved(slova, this);
+                    Prikaz pr = seznamprikazu.get(prikaz);
+                    pr.proved(slova, this);
                 }else{
-                    System.out.println("Tento prikaz neznam! zkus pouzit prikaz napoveda");
+                    p.println("Tento prikaz neznam! zkus pouzit prikaz napoveda");
                 }
             }
         } catch (Exception e) {
@@ -69,12 +71,12 @@ public class Hra {
 
         public void zkontrolujVyhru() {
         if (terminalOpraven && systemDeaktivovan && energieObnovena) {
-            System.out.println("\n╔════════════════════════════════════════╗");
-            System.out.println("║    GRATULUJEME! ÚSPĚŠNĚ JSI UTEKL!    ║");
-            System.out.println("║   Stanice AEGIS je opět funkční a     ║");
-            System.out.println("║   záchranný systém je deaktivován.    ║");
-            System.out.println("║         Mise dokončena!               ║");
-            System.out.println("╚════════════════════════════════════════╝\n");
+            p.println("\n╔════════════════════════════════════════╗");
+            p.println("║    GRATULUJEME! ÚSPĚŠNĚ JSI UTEKL!    ║");
+            p.println("║   Stanice AEGIS je opět funkční a     ║");
+            p.println("║   záchranný systém je deaktivován.    ║");
+            p.println("║         Mise dokončena!               ║");
+            p.println("╚════════════════════════════════════════╝\n");
             setBezi(false);
         }
     }
@@ -136,13 +138,3 @@ public class Hra {
     }
 
 }
-
-    //TODO prikaz vezmi, prozkoumej, pomoc, napoveda, poloz, mluv, pouzij
-
-//    public void registrujPrikaz(){}
-//    public Mistnost getAktualniMistnost(){}
-//    public void setAktualniMistnost(Mistnost m){}
-//    public boolean pridejDoBatohu(Predmet p){}
-
-
-//}

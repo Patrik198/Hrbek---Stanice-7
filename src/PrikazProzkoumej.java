@@ -1,4 +1,7 @@
 public class PrikazProzkoumej implements Prikaz{
+
+    Printovanitextu p = new Printovanitextu();
+
     @Override
     public String getNazev() {
         return "prozkoumej";
@@ -13,7 +16,7 @@ public class PrikazProzkoumej implements Prikaz{
     public void proved(String[] prikaz, Hra hra) {
 
         if (prikaz.length < 2) {
-            System.out.println("Co mám prozkoumat?");
+            p.println("Co mám prozkoumat?");
             return;
         }
 
@@ -32,11 +35,11 @@ public class PrikazProzkoumej implements Prikaz{
         Predmet predmet = aktualni.najdiPredmet(nazevPredmetu);
 
         if (predmet == null) {
-            System.out.println("Tento předmět se zde nenachází.");
+            p.println("Tento předmět se zde nenachází.");
             return;
         }
 
         // Vypíše popis předmětu
-        System.out.println(predmet.getPopis());
+        p.println(predmet.getPopis());
     }
 }

@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 public class PrikazPouzij implements Prikaz{
+
+    Printovanitextu p = new Printovanitextu();
+
     @Override
     public String getNazev() {
         return "pouzij";
@@ -14,7 +17,7 @@ public class PrikazPouzij implements Prikaz{
     @Override
     public void proved(String[] prikaz, Hra hra) {
         if (prikaz.length < 2){
-            System.out.println("Co mám použít?");
+            p.println("Co mám použít?");
             return;
         }
 
@@ -40,7 +43,7 @@ public class PrikazPouzij implements Prikaz{
         }
 
         if (predmet == null) {
-            System.out.println("Tento předmět nemáš v inventáři.");
+            p.println("Tento předmět nemáš v inventáři.");
             return;
         }
 
@@ -49,96 +52,96 @@ public class PrikazPouzij implements Prikaz{
             case "magneticky klic":
                 if (aktualni.getId().equals("Kryokomora")) {
                     if (hra.isKryokomoraOdemknuta()) {
-                        System.out.println("Dveře jsou už odemčené.");
+                        p.println("Dveře jsou už odemčené.");
                     } else {
-                        System.out.println("┌────────────────────────────────────┐");
-                        System.out.println("│ Magnetický klíč zabrousil do zámku │");
-                        System.out.println("│ Dveře se s tiším syčením otevřely  │");
-                        System.out.println("│ Cesta je volná!                    │");
-                        System.out.println("└────────────────────────────────────┘");
+                        p.println("┌────────────────────────────────────┐");
+                        p.println("│ Magnetický klíč zabrousil do zámku │");
+                        p.println("│ Dveře se s tiším syčením otevřely  │");
+                        p.println("│ Cesta je volná!                    │");
+                        p.println("└────────────────────────────────────┘");
                         hra.setKryokomoraOdemknuta(true);
                         inv.OdeberPredmet(predmet);
                     }
                 } else {
-                    System.out.println("Magnetický klíč se dá použít jen v Kryokomoře.");
+                    p.println("Magnetický klíč se dá použít jen v Kryokomoře.");
                 }
                 break;
 
             case "energeticky clanek":
                 if (aktualni.getId().equals("Strojovna")) {
                     if (hra.isEnergieObnovena()) {
-                        System.out.println("Generátor už běží na plný výkon.");
+                        p.println("Generátor už běží na plný výkon.");
                     } else {
-                        System.out.println("┌────────────────────────────────────┐");
-                        System.out.println("│ Vložil jsi článek do generátoru    │");
-                        System.out.println("│ *BZZZZZT* Světla se rozsvítila!    │");
-                        System.out.println("│ Stanice má opět plnou energii!     │");
-                        System.out.println("└────────────────────────────────────┘");
+                        p.println("┌────────────────────────────────────┐");
+                        p.println("│ Vložil jsi článek do generátoru    │");
+                        p.println("│ *BZZZZZT* Světla se rozsvítila!    │");
+                        p.println("│ Stanice má opět plnou energii!     │");
+                        p.println("└────────────────────────────────────┘");
                         hra.setEnergieObnovena(true);
                         inv.OdeberPredmet(predmet);
                         hra.zkontrolujVyhru();
                     }
                 } else {
-                    System.out.println("Energetický článek se dá použít jen ve Strojovně.");
+                    p.println("Energetický článek se dá použít jen ve Strojovně.");
                 }
                 break;
 
             case "multitool":
                 if (aktualni.getId().equals("Mustek")) {
                     if (!hra.isEnergieObnovena()) {
-                        System.out.println("Terminál nemá napájení. Nejdřív musíš obnovit energii ve Strojovně!");
+                        p.println("Terminál nemá napájení. Nejdřív musíš obnovit energii ve Strojovně!");
                     } else if (hra.isTerminalOpraven()) {
-                        System.out.println("Terminál už je opravený.");
+                        p.println("Terminál už je opravený.");
                     } else {
-                        System.out.println("┌────────────────────────────────────┐");
-                        System.out.println("│ Pomocí multitoolu opravuješ vodič  │");
-                        System.out.println("│ Terminál se rozsvítil!             │");
-                        System.out.println("│ Systém je připravený k deaktivaci  │");
-                        System.out.println("└────────────────────────────────────┘");
+                        p.println("┌────────────────────────────────────┐");
+                        p.println("│ Pomocí multitoolu opravuješ vodič  │");
+                        p.println("│ Terminál se rozsvítil!             │");
+                        p.println("│ Systém je připravený k deaktivaci  │");
+                        p.println("└────────────────────────────────────┘");
                         hra.setTerminalOpraven(true);
                     }
                 } else {
-                    System.out.println("Multitool se dá použít jen na Můstku.");
+                    p.println("Multitool se dá použít jen na Můstku.");
                 }
                 break;
 
             case "datovy cip":
                 if (aktualni.getId().equals("Mustek")) {
                     if (!hra.isTerminalOpraven()) {
-                        System.out.println("Terminál nefunguje! Nejdřív ho musíš opravit multitoolem.");
+                        p.println("Terminál nefunguje! Nejdřív ho musíš opravit multitoolem.");
                     } else if (hra.isSystemDeaktivovan()) {
-                        System.out.println("Záchranný systém už je deaktivovaný.");
+                        p.println("Záchranný systém už je deaktivovaný.");
                     } else {
-                        System.out.println("┌────────────────────────────────────┐");
-                        System.out.println("│ Vložil jsi datový čip do terminálu │");
-                        System.out.println("│ Systém vyžaduje přístupový kód...  │");
-                        System.out.println("│                                    │");
-                        System.out.print("│ Zadej kód (6 číslic): ");
+                        p.println("┌────────────────────────────────────┐");
+                        p.println("│ Vložil jsi datový čip do terminálu │");
+                        p.println("│ Systém vyžaduje přístupový kód...  │");
+                        p.println("│                                    │");
+                        p.print("│ Zadej kód (6 číslic): ");
 
                         Scanner sc = new Scanner(System.in);
                         String kod = sc.nextLine().trim();
 
                         if (kod.equals("582136")) {
-                            System.out.println("│ ✓ KÓD PŘIJAT                       │");
-                            System.out.println("│ Záchranný systém deaktivován!      │");
-                            System.out.println("└────────────────────────────────────┘");
+                            p.println("│ ✓ KÓD PŘIJAT                       │");
+                            p.println("│ Záchranný systém deaktivován!      │");
+                            p.println("└────────────────────────────────────┘");
                             hra.setSystemDeaktivovan(true);
                             inv.OdeberPredmet(predmet);
                             hra.zkontrolujVyhru();
                         } else {
-                            System.out.println("│ ✗ CHYBNÝ KÓD                       │");
-                            System.out.println("│ Hint: Promluv s UI a prozkoumej    │");
-                            System.out.println("│       starý deník v Archivu        │");
-                            System.out.println("└────────────────────────────────────┘");
+                            p.println("│ ✗ CHYBNÝ KÓD                       │");
+                            p.println("│ Hint: Promluv s UI a prozkoumej    │");
+                            p.println("│       starý deník v Archivu        │");
+                            p.println("└────────────────────────────────────┘");
                         }
                     }
                 } else {
-                    System.out.println("Datový čip se dá použít jen na Můstku.");
+                    p.println("Datový čip se dá použít jen na Můstku.");
                 }
                 break;
 
             default:
-                System.out.println("Tento předmět nelze použít.");
+                p.println("Tento předmět nelze použít.");
                 break;
         }
     }

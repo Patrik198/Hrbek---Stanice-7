@@ -1,6 +1,7 @@
 public class PrikazVezmi implements Prikaz{
 
     private Inventar inv;
+    Printovanitextu p = new Printovanitextu();
 
     @Override
     public String getNazev() {
@@ -16,7 +17,7 @@ public class PrikazVezmi implements Prikaz{
     public void proved(String[] prikaz, Hra hra) {
 
         if (prikaz.length < 2){
-            System.out.println("Nemůžeš nic vzít!");
+            p.println("Nemůžeš nic vzít!");
             return;
         }
 
@@ -40,20 +41,20 @@ public class PrikazVezmi implements Prikaz{
         }
 
         if (predmet == null){
-            System.out.println("není tu žádný takový předmět");
+            p.println("není tu žádný takový předmět");
             return;
         }
 
         if (!predmet.isPrenosny()){
-            System.out.println("Nemůžeš vzít tento předmět!");
+            p.println("Nemůžeš vzít tento předmět!");
             return;
         }
 
         if (hra.getInv().pridejPredmet(predmet)){
             aktualni.odeberPredmet(predmet);
-            System.out.println("sebral jsi: " + predmet.getNazev());
+            p.println("sebral jsi: " + predmet.getNazev());
         }else{
-            System.out.println("Nemáš kapacitu v inventari!");
+            p.println("Nemáš kapacitu v inventari!");
         }
 
 

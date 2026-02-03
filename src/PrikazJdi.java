@@ -1,5 +1,7 @@
 public class PrikazJdi implements Prikaz{
 
+    Printovanitextu p = new Printovanitextu();
+
     @Override
     public String getNazev() {
         return "jdi";
@@ -13,7 +15,7 @@ public class PrikazJdi implements Prikaz{
     @Override
     public void proved(String[] prikaz, Hra hra) {
         if (prikaz.length < 2){
-            System.out.println("Kam mám jít? (Musíš zadat směr)");
+            p.println("Kam mám jít? (Musíš zadat směr)");
             return;
         }
 
@@ -22,12 +24,18 @@ public class PrikazJdi implements Prikaz{
         String vychod = aktualni.getSmerVychodu(smer);
 
         if (vychod == null){
-            System.out.println("Nemas kam jit!");
-        }else {
-            Mistnost nova = hra.getSvet().najdiMistnost(vychod);
-            hra.setAktualnimistnost(nova);
-            System.out.println("Přešel jsi do: " + nova.getId());
-            System.out.println(nova.getPopis());
+            p.println("Nemas kam jit!");
+        }
+
+        if (hra.isKryokomoraOdemknuta()) {
+                Mistnost nova = hra.getSvet().najdiMistnost(vychod);
+                hra.setAktualnimistnost(nova);
+                hra.setKryokomoraOdemknuta(true);
+                p.println("Přešel jsi do: " + nova.getId());
+                p.println(nova.getPopis());
+        }else{
+            hra.setKryokomoraOdemknuta(false);
+            p.println("Přístup zamítnut, nemáš magnetický klíč");
         }
     }
 }

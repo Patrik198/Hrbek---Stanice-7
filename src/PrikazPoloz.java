@@ -1,4 +1,7 @@
 public class PrikazPoloz implements Prikaz{
+
+    Printovanitextu p = new Printovanitextu();
+
     @Override
     public String getNazev() {
         return "poloz";
@@ -13,7 +16,7 @@ public class PrikazPoloz implements Prikaz{
     public void proved(String[] prikaz, Hra hra) {
 
         if (prikaz.length < 2){
-            System.out.println("Nemůžeš nic položit");
+            p.println("Nemůžeš nic položit");
             return;
         }
 
@@ -30,15 +33,15 @@ public class PrikazPoloz implements Prikaz{
         Predmet predmet = hra.getInv().najdiPredmet(nazevPredmetu);
 
         if (predmet == null){
-            System.out.println("Nemůžeš nic položit");
+            p.println("Nemůžeš nic položit");
             return;
         }
 
         if (hra.getInv().odeberPredmet(predmet)){
             aktualni.pridejPredmet(predmet);
-            System.out.println("Položil jsi: " + predmet.getNazev());
+            p.println("Položil jsi: " + predmet.getNazev());
         }else{
-            System.out.println("Inventář je prázdný");
+            p.println("Inventář je prázdný");
         }
     }
 }
