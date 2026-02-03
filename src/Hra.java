@@ -40,7 +40,18 @@ public class Hra {
             Scanner sc = new Scanner(System.in);
             p.println(Barvicky.CYAN + "--- VESMÍRNÁ STANICE AEGIS ---" + Barvicky.ANSI_RESET);
 
-            p.println("\nseznam prikazu: " + seznamprikazu.keySet());
+            p.print("\nseznam prikazu: [");
+            int i = 0;
+            for (String nazev : seznamprikazu.keySet()) {
+                Prikaz prikaz = seznamprikazu.get(nazev);
+                p.print(prikaz.getBarva() + nazev + Barvicky.ANSI_RESET);
+
+                if (i < seznamprikazu.size() - 1) {
+                    p.print(", ");
+                }
+                i++;
+            }
+            p.println("]");
 
             while (bezi){
                 p.println("\nJsi v: " + aktualnimistnost.getId());
