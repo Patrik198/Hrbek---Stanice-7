@@ -54,7 +54,7 @@ public class Hra {
             p.println("]");
 
             while (bezi){
-                p.println("\nJsi v: " + aktualnimistnost.getId());
+                p.println("\nJsi v: " + Barvicky.ANSI_BOLD + Barvicky.CRYO_BLUE_BG + aktualnimistnost.getId() + Barvicky.ANSI_RESET);
                 p.println(aktualnimistnost.getPopis() + " a nachazi se zde predmět: " + aktualnimistnost.zobrazPredmety());
                 p.println("\nVedlejsi mistnosti: " + aktualnimistnost.zobrazVychody());
                 p.print(">>> ");
