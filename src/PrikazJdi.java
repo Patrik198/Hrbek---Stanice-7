@@ -27,19 +27,20 @@ public class PrikazJdi implements Prikaz{
         Mistnost aktualni = hra.getAktualnimistnost();
         String vychod = aktualni.getSmerVychodu(smer);
 
-        if (vychod == null){
-            p.println("Nemas kam jit!");
-        }
-
         if (hra.isKryokomoraOdemknuta()) {
                 Mistnost nova = hra.getSvet().najdiMistnost(vychod);
-                hra.setAktualnimistnost(nova);
-                hra.setKryokomoraOdemknuta(true);
-                p.println("Přešel jsi do: " + nova.getId());
-                p.println(nova.getPopis());
-        }else{
-            hra.setKryokomoraOdemknuta(false);
-            p.println("Přístup zamítnut, nemáš magnetický klíč");
+                if (nova != null) {
+                    hra.setAktualnimistnost(nova);
+                    hra.setKryokomoraOdemknuta(true);
+                    p.println("Přešel jsi do: " + nova.getId());
+                    p.println(nova.getPopis());
+                }else{
+                    p.println("Tudy nemůžeš jít!");
+                }
+        }else {
+                    hra.setKryokomoraOdemknuta(false);
+                    p.println("Přístup zamítnut, nemáš magnetický klíč");
+
         }
     }
 }

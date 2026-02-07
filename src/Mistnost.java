@@ -13,6 +13,7 @@ public class Mistnost {
     private Map<String, String> vychody; // Směr -> ID cílové místnosti (<smer, mistnost>)
     private List<Predmet> predmety = new ArrayList<>();
     private List<Postava> postavy = new ArrayList<>();
+    private Printovanitextu p;
 
 
     // Getter pro ID, abychom mohli vypsat, kde hráč je
