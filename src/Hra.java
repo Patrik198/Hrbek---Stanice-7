@@ -54,10 +54,10 @@ public class Hra {
             p.println("]");
 
             while (bezi){
-                p.println("\nJsi v: " + Barvicky.ANSI_BOLD + Barvicky.CRYO_BLUE_BG + aktualnimistnost.getId() + Barvicky.ANSI_RESET);
+                p.println("\nJsi v: " + Barvicky.ANSI_BOLD + Barvicky.BLUE + aktualnimistnost.getId() + Barvicky.ANSI_RESET);
                 p.println(aktualnimistnost.getPopis() + " a nachazi se zde predmět: " + aktualnimistnost.zobrazPredmety());
                 p.println("\nVedlejsi mistnosti: " + aktualnimistnost.zobrazVychody());
-                p.print(">>> ");
+                p.print(Barvicky.GREEN + ">>> " + Barvicky.ANSI_RESET);
 
                 String radek = sc.nextLine().toLowerCase().trim();
                 String[] slova = radek.split(" ");
@@ -82,12 +82,12 @@ public class Hra {
 
         public void zkontrolujVyhru() {
         if (terminalOpraven && systemDeaktivovan && energieObnovena) {
-            p.println("\n╔════════════════════════════════════════╗");
-            p.println("║    GRATULUJEME! ÚSPĚŠNĚ JSI UTEKL!    ║");
-            p.println("║   Stanice AEGIS je opět funkční a     ║");
-            p.println("║   záchranný systém je deaktivován.    ║");
-            p.println("║         Mise dokončena!               ║");
-            p.println("╚════════════════════════════════════════╝\n");
+            p.println(Barvicky.CYAN + Barvicky.ANSI_BOLD + "\n╔════════════════════════════════════════╗" + Barvicky.ANSI_RESET);
+            p.println(Barvicky.CYAN + Barvicky.ANSI_BOLD + "║    GRATULUJEME! ÚSPĚŠNĚ JSI UTEKL!    ║" + Barvicky.ANSI_RESET);
+            p.println(Barvicky.CYAN + Barvicky.ANSI_BOLD + "║   Stanice AEGIS je opět funkční a     ║" + Barvicky.ANSI_RESET);
+            p.println(Barvicky.CYAN + Barvicky.ANSI_BOLD + "║   záchranný systém je deaktivován.    ║" + Barvicky.ANSI_RESET);
+            p.println(Barvicky.CYAN + Barvicky.ANSI_BOLD + "║         Mise dokončena!               ║" + Barvicky.ANSI_RESET);
+            p.println(Barvicky.CYAN + Barvicky.ANSI_BOLD + "╚════════════════════════════════════════╝\n");
             setBezi(false);
         }
     }

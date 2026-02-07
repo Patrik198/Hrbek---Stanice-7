@@ -56,7 +56,7 @@ public class PrikazVezmi implements Prikaz{
 
         if (hra.getInv().pridejPredmet(predmet)){
             aktualni.odeberPredmet(predmet);
-            p.println("sebral jsi: " + predmet.getNazev());
+            p.println("sebral jsi: "+ Barvicky.YELLOW + Barvicky.ANSI_BOLD + predmet.getNazev() + Barvicky.ANSI_RESET);
         }else{
             p.println("Nemáš kapacitu v inventari!");
         }

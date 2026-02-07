@@ -58,13 +58,14 @@ public class PrikazPouzij implements Prikaz{
                     if (hra.isKryokomoraOdemknuta()) {
                         p.println("Dveře jsou už odemčené.");
                     } else {
-                        p.println("┌────────────────────────────────────┐");
-                        p.println("│ Magnetický klíč zabrousil do zámku │");
-                        p.println("│ Dveře se s tiším syčením otevřely  │");
-                        p.println("│ Cesta je volná!                    │");
-                        p.println("└────────────────────────────────────┘");
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN +"┌────────────────────────────────────┐" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN +"│ Magnetický klíč zabrousil do zámku │" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN +"│ Dveře se s tiším syčením otevřely  │" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN +"│ Cesta je volná!                    │" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN +"└────────────────────────────────────┘" + Barvicky.ANSI_RESET);
                         hra.setKryokomoraOdemknuta(true);
-                        inv.OdeberPredmet(predmet);
+                        inv.odeberPredmet(predmet);
+
                     }
                 } else {
                     p.println("Magnetický klíč se dá použít jen v Kryokomoře.");
@@ -76,13 +77,13 @@ public class PrikazPouzij implements Prikaz{
                     if (hra.isEnergieObnovena()) {
                         p.println("Generátor už běží na plný výkon.");
                     } else {
-                        p.println("┌────────────────────────────────────┐");
-                        p.println("│ Vložil jsi článek do generátoru    │");
-                        p.println("│ *BZZZZZT* Světla se rozsvítila!    │");
-                        p.println("│ Stanice má opět plnou energii!     │");
-                        p.println("└────────────────────────────────────┘");
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "┌────────────────────────────────────┐" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│ Vložil jsi článek do generátoru    │" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│ *BZZZZZT* Světla se rozsvítila!    │" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│ Stanice má opět plnou energii!     │" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "└────────────────────────────────────┘" + Barvicky.ANSI_RESET);
                         hra.setEnergieObnovena(true);
-                        inv.OdeberPredmet(predmet);
+                        inv.odeberPredmet(predmet);
                         hra.zkontrolujVyhru();
                     }
                 } else {
@@ -97,11 +98,11 @@ public class PrikazPouzij implements Prikaz{
                     } else if (hra.isTerminalOpraven()) {
                         p.println("Terminál už je opravený.");
                     } else {
-                        p.println("┌────────────────────────────────────┐");
-                        p.println("│ Pomocí multitoolu opravuješ vodič  │");
-                        p.println("│ Terminál se rozsvítil!             │");
-                        p.println("│ Systém je připravený k deaktivaci  │");
-                        p.println("└────────────────────────────────────┘");
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "┌────────────────────────────────────┐" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│ Pomocí multitoolu opravuješ vodič  │" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│ Terminál se rozsvítil!             │" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│ Systém je připravený k deaktivaci  │" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "└────────────────────────────────────┘" + Barvicky.ANSI_RESET);
                         hra.setTerminalOpraven(true);
                     }
                 } else {
@@ -116,27 +117,27 @@ public class PrikazPouzij implements Prikaz{
                     } else if (hra.isSystemDeaktivovan()) {
                         p.println("Záchranný systém už je deaktivovaný.");
                     } else {
-                        p.println("┌────────────────────────────────────┐");
-                        p.println("│ Vložil jsi datový čip do terminálu │");
-                        p.println("│ Systém vyžaduje přístupový kód...  │");
-                        p.println("│                                    │");
-                        p.print("│ Zadej kód (6 číslic): ");
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "┌────────────────────────────────────┐" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│ Vložil jsi datový čip do terminálu │" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│ Systém vyžaduje přístupový kód...  │" + Barvicky.ANSI_RESET);
+                        p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│                                    │" + Barvicky.ANSI_RESET);
+                        p.print(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│ Zadej kód (6 číslic): " + Barvicky.ANSI_RESET);
 
                         Scanner sc = new Scanner(System.in);
                         String kod = sc.nextLine().trim();
 
                         if (kod.equals("582136")) {
-                            p.println("│ ✓ KÓD PŘIJAT                       │");
-                            p.println("│ Záchranný systém deaktivován!      │");
-                            p.println("└────────────────────────────────────┘");
+                            p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│ ✓ KÓD PŘIJAT                       │" + Barvicky.ANSI_RESET);
+                            p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│ Záchranný systém deaktivován!      │" + Barvicky.ANSI_RESET);
+                            p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "└────────────────────────────────────┘" + Barvicky.ANSI_RESET);
                             hra.setSystemDeaktivovan(true);
-                            inv.OdeberPredmet(predmet);
+                            inv.odeberPredmet(predmet);
                             hra.zkontrolujVyhru();
                         } else {
-                            p.println("│ ✗ CHYBNÝ KÓD                       │");
-                            p.println("│ Hint: Promluv s UI a prozkoumej    │");
-                            p.println("│       starý deník v Archivu        │");
-                            p.println("└────────────────────────────────────┘");
+                            p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│ ✗ CHYBNÝ KÓD                       │" + Barvicky.ANSI_RESET);
+                            p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│ Hint: Promluv s UI a prozkoumej    │" + Barvicky.ANSI_RESET);
+                            p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "│       starý deník v Archivu        │" + Barvicky.ANSI_RESET);
+                            p.println(Barvicky.ANSI_BOLD + Barvicky.CYAN + "└────────────────────────────────────┘" + Barvicky.ANSI_RESET);
                         }
                     }
                 } else {
