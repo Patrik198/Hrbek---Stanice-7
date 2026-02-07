@@ -9,7 +9,14 @@ public class Hra {
     private boolean bezi = true;
     private Inventar inv;
 
+    Printovanitextu p = new Printovanitextu();
+
     private Map<String, Prikaz> seznamprikazu = new HashMap<>();
+
+    private boolean kryokomoraOdemknuta = false;
+    private boolean energieObnovena = false;
+    private boolean terminalOpraven = false;
+    private boolean systemDeaktivovan = false;
 
     public void hraj(){
         try{
@@ -31,25 +38,36 @@ public class Hra {
 
 
             Scanner sc = new Scanner(System.in);
-            System.out.println("--- VESMÍRNÁ STANICE AEGIS ---");
+            p.println(Barvicky.CYAN + "--- VESMÍRNÁ STANICE AEGIS ---" + Barvicky.ANSI_RESET);
 
-            System.out.println("\nseznam prikazu: " + seznamprikazu.keySet());
+            p.print("\nseznam prikazu: [");
+            int i = 0;
+            for (String nazev : seznamprikazu.keySet()) {
+                Prikaz prikaz = seznamprikazu.get(nazev);
+                p.print(prikaz.getBarva() + nazev + Barvicky.ANSI_RESET);
+
+                if (i < seznamprikazu.size() - 1) {
+                    p.print(", ");
+                }
+                i++;
+            }
+            p.println("]");
 
             while (bezi){
-                System.out.println("\nJsi v: " + aktualnimistnost.getId());
-                System.out.println(aktualnimistnost.getPopis() + " a nachazi se zde predmět: " + aktualnimistnost.zobrazPredmety());
-                System.out.println("\nVedlejsi mistnosti: " + aktualnimistnost.zobrazVychody());
-                System.out.print(">>> ");
+                p.println("\nJsi v: " + Barvicky.ANSI_BOLD + Barvicky.CRYO_BLUE_BG + aktualnimistnost.getId() + Barvicky.ANSI_RESET);
+                p.println(aktualnimistnost.getPopis() + " a nachazi se zde predmět: " + aktualnimistnost.zobrazPredmety());
+                p.println("\nVedlejsi mistnosti: " + aktualnimistnost.zobrazVychody());
+                p.print(">>> ");
 
                 String radek = sc.nextLine().toLowerCase().trim();
                 String[] slova = radek.split(" ");
                 String prikaz = slova[0];
 
                 if (seznamprikazu.containsKey(prikaz)){
-                    Prikaz p = seznamprikazu.get(prikaz);
-                    p.proved(slova, this);
+                    Prikaz pr = seznamprikazu.get(prikaz);
+                    pr.proved(slova, this);
                 }else{
-                    System.out.println("Tento prikaz neznam! zkus pouzit prikaz napoveda");
+                    p.println("Tento prikaz neznam! zkus pouzit prikaz napoveda");
                 }
             }
         } catch (Exception e) {
@@ -61,6 +79,18 @@ public class Hra {
         public void registrujprikaz(Prikaz p){
             seznamprikazu.put(p.getNazev(), p);
         }
+
+        public void zkontrolujVyhru() {
+        if (terminalOpraven && systemDeaktivovan && energieObnovena) {
+            p.println("\n╔════════════════════════════════════════╗");
+            p.println("║    GRATULUJEME! ÚSPĚŠNĚ JSI UTEKL!    ║");
+            p.println("║   Stanice AEGIS je opět funkční a     ║");
+            p.println("║   záchranný systém je deaktivován.    ║");
+            p.println("║         Mise dokončena!               ║");
+            p.println("╚════════════════════════════════════════╝\n");
+            setBezi(false);
+        }
+    }
 
         public Mistnost getAktualnimistnost(){
             return aktualnimistnost;
@@ -82,17 +112,40 @@ public class Hra {
             return svet;
         }
 
-    public Inventar getInv() {
+        public Inventar getInv() {
         return inv;
     }
+
+        public boolean isKryokomoraOdemknuta() {
+        return kryokomoraOdemknuta;
+    }
+
+        public void setKryokomoraOdemknuta(boolean stav) {
+        this.kryokomoraOdemknuta = stav;
+    }
+
+        public boolean isEnergieObnovena() {
+        return energieObnovena;
+    }
+
+        public void setEnergieObnovena(boolean stav) {
+        this.energieObnovena = stav;
+    }
+
+        public boolean isTerminalOpraven() {
+        return terminalOpraven;
+    }
+
+        public void setTerminalOpraven(boolean stav) {
+        this.terminalOpraven = stav;
+    }
+
+        public boolean isSystemDeaktivovan() {
+        return systemDeaktivovan;
+    }
+
+        public void setSystemDeaktivovan(boolean stav) {
+        this.systemDeaktivovan = stav;
+    }
+
 }
-
-    //TODO prikaz vezmi, prozkoumej, pomoc, napoveda, poloz, mluv, pouzij
-
-//    public void registrujPrikaz(){}
-//    public Mistnost getAktualniMistnost(){}
-//    public void setAktualniMistnost(Mistnost m){}
-//    public boolean pridejDoBatohu(Predmet p){}
-
-
-//}

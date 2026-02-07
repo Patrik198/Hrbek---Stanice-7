@@ -1,4 +1,7 @@
 public class PrikazNapoveda implements Prikaz{
+
+    Printovanitextu p = new Printovanitextu();
+
     @Override
     public String getNazev() {
         return "napoveda";
@@ -9,18 +12,22 @@ public class PrikazNapoveda implements Prikaz{
         return "Zobrazí seznam všech dostupných příkazů";
     }
 
+    public String getBarva(){
+        return Barvicky.BLUE;
+    }
+
     @Override
     public void proved(String[] prikaz, Hra hra) {
-        System.out.println("\n=== DOSTUPNÉ PŘÍKAZY ===");
-        System.out.println("jdi <směr>       - Přesun do jiné místnosti");
-        System.out.println("vezmi <předmět>  - Vezme předmět do inventáře");
-        System.out.println("poloz <předmět>  - Položí předmět z inventáře");
-        System.out.println("batoh            - Zobrazí obsah inventáře");
-        System.out.println("prozkoumej       - Prozkoumá místnost");
-        System.out.println("pouzij <předmět> - Použije předmět");
-        System.out.println("mluv             - Promluví s postavou");
-        System.out.println("pomoc <příkaz>   - Detailní nápověda k příkazu");
-        System.out.println("konec            - Ukončí hru");
-        System.out.println("\nPro detailní info použij: pomoc <název příkazu>");
+        p.println("\n=== DOSTUPNÉ PŘÍKAZY ===");
+        p.println("jdi <směr>       - Přesun do jiné místnosti");
+        p.println("vezmi <předmět>  - Vezme předmět do inventáře");
+        p.println("poloz <předmět>  - Položí předmět z inventáře");
+        p.println("batoh            - Zobrazí obsah inventáře");
+        p.println("prozkoumej       - Prozkoumá předmět");
+        p.println("pouzij <předmět> - Použije předmět");
+        p.println("mluv             - Promluví s postavou UI");
+        p.println("pomoc <příkaz>   - Detailní nápověda k příkazu");
+        p.println("konec            - Ukončí hru");
+        p.println("\nPro detailní info použij: pomoc <název příkazu>");
     }
 }
