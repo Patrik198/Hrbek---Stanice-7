@@ -14,7 +14,7 @@ public class Inventar {
     }
 
     public boolean pridejPredmet(Predmet p) {
-        if (aktualnikapacita + p.getVaha() > kapacita) {
+        if (inventar.size() >= kapacita) {
             return false;  // Inventář je plný
         }
         inventar.add(p);
@@ -32,10 +32,6 @@ public class Inventar {
             return true;
         }
         return false;
-    }
-
-    public boolean OdeberPredmet(Predmet p) {
-        return inventar.remove(p);
     }
 
     public String zobrazObsah(){

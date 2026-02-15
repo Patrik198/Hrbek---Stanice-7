@@ -15,6 +15,13 @@ public class Mistnost {
     private List<Postava> postavy = new ArrayList<>();
     private Printovanitextu p;
 
+    public Mistnost(String id, String popis) {
+        this.id = id;
+        this.popis = popis;
+    }
+
+    public Mistnost(){
+    }
 
     // Getter pro ID, abychom mohli vypsat, kde hráč je
     public String getId() {
@@ -62,7 +69,7 @@ public class Mistnost {
 
     public Predmet najdiPredmet(String nazev) {
         for (Predmet p : predmety) {
-            if (p.getNazev().equalsIgnoreCase(nazev)) {
+            if (p.getNazev() != null && p.getNazev().equalsIgnoreCase(nazev)) {
                 return p;
             }
         }
@@ -71,7 +78,7 @@ public class Mistnost {
 
     public String zobrazPredmety(){
         if (predmety == null || predmety.isEmpty()){
-            return "Neni tu nic";
+            return Barvicky.ANSI_RESET + "Neni tu nic";
         }
 
         List<String> nazvy = new ArrayList<>();
@@ -94,5 +101,18 @@ public class Mistnost {
         }
 
         return severjihzapadvychod;
+    }
+
+    public void pridejVychod(String smer, String cil) {
+        if (vychody == null) vychody = new HashMap<>();
+        vychody.put(smer, cil);
+    }
+
+    public void setVychody(Map<String, String> vychody) {
+        this.vychody = vychody;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

@@ -37,9 +37,10 @@ public class PrikazJdi implements Prikaz{
                 }else{
                     p.println("Tudy nemůžeš jít!");
                 }
-        }else {
+        }
+        else {
                     hra.setKryokomoraOdemknuta(false);
-                    p.println("Přístup zamítnut, nemáš magnetický klíč");
+                    p.println("Přístup zamítnut, nepoužil " + Barvicky.YELLOW + Barvicky.ANSI_BOLD + " magnetický klíč" + Barvicky.ANSI_RESET);
 
         }
     }

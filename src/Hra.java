@@ -11,6 +11,9 @@ public class Hra {
 
     Printovanitextu p = new Printovanitextu();
 
+    public Hra(){
+        this.inv = new Inventar();
+    }
     private Map<String, Prikaz> seznamprikazu = new HashMap<>();
 
     private boolean kryokomoraOdemknuta = false;
@@ -20,7 +23,7 @@ public class Hra {
 
     public void hraj(){
         try{
-            svet = Svet.nactijson("resource/mapa.json");
+            svet = Svet.nactijson("resources/mapa.json");
             aktualnimistnost = svet.getPocatecniMistnost();
             inv = new Inventar();
 
@@ -38,13 +41,13 @@ public class Hra {
 
 
             Scanner sc = new Scanner(System.in);
-            p.println(Barvicky.CYAN + "--- VESMÍRNÁ STANICE AEGIS ---" + Barvicky.ANSI_RESET);
+            p.println(Barvicky.CYAN + Barvicky.ANSI_BOLD + "--- VESMÍRNÁ STANICE AEGIS ---" + Barvicky.ANSI_RESET);
 
             p.print("\nseznam prikazu: [");
             int i = 0;
             for (String nazev : seznamprikazu.keySet()) {
                 Prikaz prikaz = seznamprikazu.get(nazev);
-                p.print(prikaz.getBarva() + nazev + Barvicky.ANSI_RESET);
+                p.print(Barvicky.ANSI_BOLD + prikaz.getBarva() + nazev + Barvicky.ANSI_RESET);
 
                 if (i < seznamprikazu.size() - 1) {
                     p.print(", ");
@@ -55,7 +58,7 @@ public class Hra {
 
             while (bezi){
                 p.println("\nJsi v: " + Barvicky.ANSI_BOLD + Barvicky.BLUE + aktualnimistnost.getId() + Barvicky.ANSI_RESET);
-                p.println(aktualnimistnost.getPopis() + " a nachazi se zde predmět: " + aktualnimistnost.zobrazPredmety());
+                p.println(aktualnimistnost.getPopis() + " a nachazi se zde predmět: " + Barvicky.YELLOW + aktualnimistnost.zobrazPredmety() + Barvicky.ANSI_RESET);
                 p.println("\nVedlejsi mistnosti: " + aktualnimistnost.zobrazVychody());
                 p.print(Barvicky.GREEN + ">>> " + Barvicky.ANSI_RESET);
 
@@ -148,4 +151,7 @@ public class Hra {
         this.systemDeaktivovan = stav;
     }
 
+        public void setSvet(Svet svet) {
+        this.svet = svet;
+        }
 }
