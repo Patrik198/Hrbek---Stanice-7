@@ -11,9 +11,13 @@ public class Hra {
 
     Printovanitextu p = new Printovanitextu();
 
+    /**
+     * Konstruktor
+     */
     public Hra(){
         this.inv = new Inventar();
     }
+
     private Map<String, Prikaz> seznamprikazu = new HashMap<>();
 
     private boolean kryokomoraOdemknuta = false;
@@ -21,6 +25,9 @@ public class Hra {
     private boolean terminalOpraven = false;
     private boolean systemDeaktivovan = false;
 
+    /**
+     * Hlavní game loop
+     */
     public void hraj(){
         try{
             svet = Svet.nactijson("resources/mapa.json");
@@ -79,11 +86,18 @@ public class Hra {
             }
         }
 
-        public void registrujprikaz(Prikaz p){
+    /**
+     * Metoda pro registraci příkazu v konzoli
+     * @param p - instance tridy Prikaz
+     */
+    public void registrujprikaz(Prikaz p){
             seznamprikazu.put(p.getNazev(), p);
         }
 
-        public void zkontrolujVyhru() {
+    /**
+     * Logika pro kontrolu výhry
+     */
+    public void zkontrolujVyhru() {
         if (terminalOpraven && systemDeaktivovan && energieObnovena) {
             p.println(Barvicky.CYAN + Barvicky.ANSI_BOLD + "\n╔════════════════════════════════════════╗" + Barvicky.ANSI_RESET);
             p.println(Barvicky.CYAN + Barvicky.ANSI_BOLD + "║    GRATULUJEME! ÚSPĚŠNĚ JSI UTEKL!    ║" + Barvicky.ANSI_RESET);

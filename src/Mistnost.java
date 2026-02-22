@@ -15,11 +15,19 @@ public class Mistnost {
     private List<Postava> postavy = new ArrayList<>();
     private Printovanitextu p;
 
+    /**
+     * Konstruktor
+     * @param id - id předmětu
+     * @param popis - popis předmětu
+     */
     public Mistnost(String id, String popis) {
         this.id = id;
         this.popis = popis;
     }
 
+    /**
+     * Bezparametrický konstruktor
+     */
     public Mistnost(){
     }
 
@@ -40,8 +48,8 @@ public class Mistnost {
     /**
      * Klíčová metoda pro pohyb.
      * Podívá se do mapy východů, jestli pro daný směr existuje cesta.
-     * @param smer Směr, který hráč zadal (např. "sever")
-     * @return ID cílové místnosti nebo null, pokud cesta neexistuje
+     * @param smer - Směr, který hráč zadal (např. "sever")
+     * @return - ID cílové místnosti nebo null, pokud cesta neexistuje
      */
     public String getSmerVychodu(String smer) {
         if (vychody == null)
@@ -78,7 +86,7 @@ public class Mistnost {
 
     public String zobrazPredmety(){
         if (predmety == null || predmety.isEmpty()){
-            return Barvicky.ANSI_RESET + "Neni tu nic";
+            return "";
         }
 
         List<String> nazvy = new ArrayList<>();

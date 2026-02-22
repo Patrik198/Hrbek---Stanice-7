@@ -39,8 +39,4 @@ public class Predmet {
     public void setPrenosny(boolean prenosny) {
         this.prenosny = prenosny;
     }
-
-    public boolean pridejveci(Predmet p) {
-        return veci.add(String.valueOf(p));
-    }
 }

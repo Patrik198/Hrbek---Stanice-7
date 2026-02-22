@@ -11,6 +11,12 @@ public class Svet {
 
     private Map<String, Mistnost> mapamistnosti = new HashMap<>();
 
+    /**
+     * Metoda pro načtení mapy ze souboru Json
+     * @param cesta - odkud se bude načítat
+     * @return - mapu
+     * @throws Exception - ošetření
+     */
     public static Svet nactijson(String cesta) throws Exception {
         Gson gson = new Gson();
 
