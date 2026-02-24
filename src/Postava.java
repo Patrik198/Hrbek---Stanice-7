@@ -1,3 +1,6 @@
+/**
+ * Třída reprezentuje postavu se kterou se dá mluvit
+ */
 public class Postava {
 
     private String jmeno;
