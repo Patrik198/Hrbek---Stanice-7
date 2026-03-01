@@ -89,27 +89,27 @@ Herní svět se načítá z JSON souboru (resources/mapa.json) pomocí knihovny 
 #### **Struktura projektu**
 
 
-Main -> Spouští hru
+  Main -> Spouští hru
 
-Hra	Hlavní -> herní logika
+  Hra	Hlavní -> herní logika
 
-Svet -> Načítá mapu z JSON
+  Svet -> Načítá mapu z JSON
 
-Mistnost -> Reprezentace lokace
+  Mistnost -> Reprezentace lokace
 
-Predmet	-> Herní předměty
+  Predmet	-> Herní předměty
 
-Postava	-> Herní postavy
+  Postava	-> Herní postavy
 
-Inventar -> Správa inventáře
+  Inventar -> Správa inventáře
 
-Prikaz -> Rozhraní příkazů
+  Prikaz -> Rozhraní příkazů
 
-Prikaz Jdi, Vezmi, ... -> Implementace konkrétních příkazů
+  Prikaz Jdi, Vezmi, ... -> Implementace konkrétních příkazů
 
-Barvicky -> ANSI barvy pro výstup
+  Barvicky -> ANSI barvy pro výstup
 
-Printovanitextu	-> Oddělení výpisu textu
+  Printovanitextu	-> Oddělení výpisu textu
 
 
 #### **Spuštění programu**
