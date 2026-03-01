@@ -1,5 +1,3 @@
-package Hra.postava;
-
 public class Postava {
 
     private String jmeno;
