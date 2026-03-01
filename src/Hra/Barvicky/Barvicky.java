@@ -1,3 +1,5 @@
+package Hra.Barvicky;
+
 public class Barvicky {
 
     public static final String ANSI_RESET = "\u001B[0m";

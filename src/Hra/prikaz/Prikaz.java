@@ -1,3 +1,7 @@
+package Hra.prikaz;
+
+import Hra.Hra;
+
 public interface Prikaz {
 
      String getNazev();

@@ -1,4 +1,6 @@
-public class Printovanitextu implements Print{
+package Hra.printovanitextu;
+
+public class Printovanitextu implements Print {
     @Override
     public void print(String s) {
         System.out.print(s);

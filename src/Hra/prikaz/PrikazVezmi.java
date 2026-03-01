@@ -1,4 +1,10 @@
-public class PrikazVezmi implements Prikaz{
+package Hra.prikaz;
+
+import Hra.Barvicky.Barvicky;
+import Hra.Hra;
+import Hra.dulezitetridy.Inventar;
+
+public class PrikazVezmi implements Prikaz {
 
     private Inventar inv;
     Printovanitextu p = new Printovanitextu();

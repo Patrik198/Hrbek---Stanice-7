@@ -1,4 +1,9 @@
-public class PrikazJdi implements Prikaz{
+package Hra.prikaz;
+
+import Hra.Barvicky.Barvicky;
+import Hra.Hra;
+
+public class PrikazJdi implements Prikaz {
 
     Printovanitextu p = new Printovanitextu();
 

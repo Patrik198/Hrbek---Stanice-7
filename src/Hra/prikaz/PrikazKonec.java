@@ -1,4 +1,9 @@
-public class PrikazKonec implements Prikaz{
+package Hra.prikaz;
+
+import Hra.Barvicky.Barvicky;
+import Hra.Hra;
+
+public class PrikazKonec implements Prikaz {
     @Override
     public String getNazev() {
         return "konec";

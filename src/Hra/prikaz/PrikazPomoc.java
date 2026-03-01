@@ -1,4 +1,8 @@
-public class PrikazPomoc implements Prikaz{
+package Hra.prikaz;
+
+import Hra.Hra;
+
+public class PrikazPomoc implements Prikaz {
 
     private Hra hra;
     Printovanitextu p = new Printovanitextu();

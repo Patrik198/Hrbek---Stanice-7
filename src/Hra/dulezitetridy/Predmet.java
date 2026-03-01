@@ -1,3 +1,5 @@
+package Hra.dulezitetridy;
+
 import java.util.ArrayList;
 
 public class Predmet {

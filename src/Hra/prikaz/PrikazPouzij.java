@@ -1,6 +1,11 @@
+package Hra.prikaz;
+
+import Hra.Barvicky.Barvicky;
+import Hra.Hra;
+
 import java.util.Scanner;
 
-public class PrikazPouzij implements Prikaz{
+public class PrikazPouzij implements Prikaz {
 
     Printovanitextu p = new Printovanitextu();
 

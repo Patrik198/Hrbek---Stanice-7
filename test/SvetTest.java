@@ -1,3 +1,5 @@
+import Hra.dulezitetridy.Mistnost;
+import Hra.dulezitetridy.Svet;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,7 +11,7 @@ public class SvetTest {
         Svet svet = Svet.nactijson("resources/mapa.json");
 
         // Ověříme, že objekt není null
-        assertNotNull(svet, "Svet by nemel byt null");
+        assertNotNull(svet, "Hra.dulezitetridy.Svet by nemel byt null");
 
         // Ověříme, že počáteční místnost existuje
         Mistnost pocatecni = svet.getPocatecniMistnost();
@@ -27,7 +29,7 @@ public class SvetTest {
         Mistnost sklad = svet.najdiMistnost("Sklad");
 
         // Ověříme, že místnost existuje a má správné ID
-        assertNotNull(sklad, "Mistnost Sklad by mela existovat");
+        assertNotNull(sklad, "Hra.dulezitetridy.Mistnost Sklad by mela existovat");
         assertEquals("Sklad", sklad.getId(), "ID mistnosti nesouhlasi");
     }
 }

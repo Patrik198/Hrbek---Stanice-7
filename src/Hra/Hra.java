@@ -1,3 +1,12 @@
+package Hra;
+
+import Hra.Barvicky.Barvicky;
+import Hra.dulezitetridy.Inventar;
+import Hra.dulezitetridy.Mistnost;
+import Hra.dulezitetridy.Svet;
+import Hra.prikaz.*;
+import Hra.printovanitextu.Printovanitextu;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -88,7 +97,7 @@ public class Hra {
 
     /**
      * Metoda pro registraci příkazu v konzoli
-     * @param p - instance tridy Prikaz
+     * @param p - instance tridy Hra.prikaz.Prikaz
      */
     public void registrujprikaz(Prikaz p){
             seznamprikazu.put(p.getNazev(), p);

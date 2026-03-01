@@ -1,3 +1,5 @@
+package Hra.dulezitetridy;
+
 import com.google.gson.Gson;
 import java.io.InputStream;
 import java.io.InputStreamReader;

@@ -1,3 +1,8 @@
+package Hra.dulezitetridy;
+
+import Hra.postava.Postava;
+import Hra.printovanitextu.Printovanitextu;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

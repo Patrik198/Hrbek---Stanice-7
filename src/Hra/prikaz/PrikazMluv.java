@@ -1,4 +1,9 @@
-public class PrikazMluv implements Prikaz{
+package Hra.prikaz;
+
+import Hra.Barvicky.Barvicky;
+import Hra.Hra;
+
+public class PrikazMluv implements Prikaz {
 
     Printovanitextu p = new Printovanitextu();
 

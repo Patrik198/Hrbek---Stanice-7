@@ -1,3 +1,5 @@
+import Hra.dulezitetridy.Inventar;
+import Hra.dulezitetridy.Predmet;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
