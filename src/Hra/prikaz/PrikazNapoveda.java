@@ -2,6 +2,7 @@ package Hra.prikaz;
 
 import Hra.Barvicky.Barvicky;
 import Hra.Hra;
+import Hra.printovanitextu.Printovanitextu;
 
 public class PrikazNapoveda implements Prikaz {
 

@@ -1,4 +1,7 @@
 import Hra.Hra;
+import Hra.dulezitetridy.Mistnost;
+import Hra.dulezitetridy.Svet;
+import Hra.prikaz.PrikazJdi;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -31,6 +34,10 @@ public class PrikazJdiTest {
         jdi.proved(new String[]{"jdi", "sever"}, hra);
 
         assertEquals("B", hra.getAktualnimistnost().getId());
+    }
+
+    private void assertEquals(String b, String id) {
+
     }
 
 }

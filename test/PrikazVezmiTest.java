@@ -1,4 +1,7 @@
 import Hra.Hra;
+import Hra.dulezitetridy.Mistnost;
+import Hra.dulezitetridy.Predmet;
+import Hra.prikaz.PrikazVezmi;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

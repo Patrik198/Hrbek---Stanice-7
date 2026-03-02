@@ -2,6 +2,9 @@ package Hra.prikaz;
 
 import Hra.Barvicky.Barvicky;
 import Hra.Hra;
+import Hra.dulezitetridy.Mistnost;
+import Hra.dulezitetridy.Predmet;
+import Hra.printovanitextu.Printovanitextu;
 
 public class PrikazProzkoumej implements Prikaz {
 

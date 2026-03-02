@@ -2,6 +2,8 @@ package Hra.prikaz;
 
 import Hra.Barvicky.Barvicky;
 import Hra.Hra;
+import Hra.dulezitetridy.Mistnost;
+import Hra.printovanitextu.Printovanitextu;
 
 public class PrikazJdi implements Prikaz {
 

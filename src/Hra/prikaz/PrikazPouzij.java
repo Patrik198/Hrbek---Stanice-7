@@ -2,6 +2,10 @@ package Hra.prikaz;
 
 import Hra.Barvicky.Barvicky;
 import Hra.Hra;
+import Hra.dulezitetridy.Inventar;
+import Hra.dulezitetridy.Mistnost;
+import Hra.dulezitetridy.Predmet;
+import Hra.printovanitextu.Printovanitextu;
 
 import java.util.Scanner;
 
